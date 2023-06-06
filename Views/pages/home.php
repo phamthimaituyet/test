@@ -1,3 +1,9 @@
+<?php
+    // if neu chua dang nhap thi redirect toi man hinh dang nhap
+    
+    // else thi hien thi man hinh dang nhap
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

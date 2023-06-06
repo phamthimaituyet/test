@@ -13,13 +13,13 @@ abstract class BaseController
     {
         // Chuyển mảng dữ liệu thành từng biến
         extract($data);
-        include_once '../Views/pages/' . $view . '.php';
+        include_once '../Views/Pages/' . $view . '.php';
     }
 
     function render($view, $data = array())
     {
         // Kiểm tra file gọi đến có tồn tại hay không?
-        $view_file = '../Views/pages/' . $view . '.php';
+        $view_file = '../Views/Pages/' . $view . '.php';
         if (is_file($view_file)) {
             // Nếu tồn tại file đó thì tạo ra các biến chứa giá trị truyền vào lúc gọi hàm
             extract($data);
@@ -32,7 +32,7 @@ abstract class BaseController
             require('../Views/Layouts/application.php');
         } else {
             // Nếu file muốn gọi ra không tồn tại thì chuyển hướng đến trang báo lỗi.
-            header('Location: login');
+            header("Location: http://localhost/test/test/login");
         }
     }
 
@@ -44,9 +44,9 @@ abstract class BaseController
     public function isPost()
     {
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            
             return true;
         }
-
         return false;
     }
 
@@ -55,17 +55,17 @@ abstract class BaseController
      *
      * @desc  lấy giá trị request
      */
-    public function request($name = null)
-    {
-        if (!$name) {
-            array_shift($_REQUEST);
-            return $_REQUEST;
-        }
+    // public function request($email = null)
+    // {
+    //     if (!$email) {
+    //         array_shift($_REQUEST);
+    //         return $_REQUEST;
+    //     }
 
-        if ($_REQUEST[$name]) {
-            return $_REQUEST[$name];
-        }
+    //     if ($_REQUEST[$email]) {
+    //         return $_REQUEST[$email];
+    //     }
 
-        return null;
-    }
+    //     return null;
+    // }
 }

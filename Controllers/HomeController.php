@@ -3,14 +3,15 @@ include_once 'BaseController.php';
 
 class HomeController extends BaseController
 {
-    function __construct()
+    public function __construct()
     {
-      $this->folder = 'pages';
+        if (!isset($_SESSION['email'])) {
+            return header("Location: http://localhost/test/test/Route");
+        }
     }
-  
+   
     public function home()
-    {
-        
+    {    
       $this->render('home');
     }
 }
